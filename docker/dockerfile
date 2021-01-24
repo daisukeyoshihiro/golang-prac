@@ -1,0 +1,8 @@
+FROM golang:rc-alpine3.13
+WORKDIR /go/src/app
+RUN apk --update add \
+    git \
+    tzdata && \
+    cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime && \
+    apk del tzdata && \
+    rm -rf /var/cache/apk/*
